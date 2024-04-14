@@ -11,16 +11,7 @@ services:
       - FLASK_ENV=development
       - FLASK_CONFIG=development
       - SQLALCHEMY_DATABASE_URI=postgresql://myuser:mypassword@database/mydatabase
-  web2:
-    image: fecendrer/reto_final:app
-    ports:
-      - "5001:5000"
-    networks:
-      - my_network
-    environment:
-      - FLASK_ENV=development
-      - FLASK_CONFIG=development
-      - SQLALCHEMY_DATABASE_URI=postgresql://myuser:mypassword@database/mydatabase
+ 
 
   nginx:
     image: nginx:latest
