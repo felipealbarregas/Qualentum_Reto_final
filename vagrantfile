@@ -1,0 +1,31 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  
+  # Máquina virtual para Jenkins con Docker
+  config.vm.define "jenkins" do |jenkins|
+    jenkins.vm.box = "ubuntu/bionic64"
+    jenkins.vm.hostname = "jenkins"
+    jenkins.vm.network "public_network", bridge: "Wi-FI", type: "dhcp"  # Configuración de red dinámica tipo bridge
+    jenkins.vm.network "forwarded_port", guest: 8080, host: 1234  # Reenvío del puerto 8080
+    jenkins.vm.provision "shell", inline: <<-SHELL
+      # Actualizamos los repositorios e instalamos dependencias necesarias
+      sudo apt-get update
+      sudo do-release-upgrade
+      sudo apt-get install -y openjdk-11-jdk
+      sudo apt-get install -y docker.io
+      sudo usermod -aG docker vagrant
+      
+      # Actualizamos las claves GPG para el repositorio de Jenkins
+      sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5BA31D57EF5975CA
+
+      # Descargamos e instalamos Jenkins
+      wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+      sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+      sudo apt-get update
+      sudo apt-get install -y jenkins
+    SHELL
+  end
+
+end
