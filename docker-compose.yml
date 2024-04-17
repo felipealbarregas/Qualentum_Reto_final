@@ -4,7 +4,7 @@ services:
   web1:
     image: fecendrer/reto_final:app
     ports:
-      - "8081:5000"
+      - "127.0.0.1:8081:5000"
     networks:
       - my_network
     environment:
@@ -15,7 +15,7 @@ services:
   web2:
     image: fecendrer/reto_final:app
     ports:
-      - "8082:5000"
+      - "127.0.0.1:8082:5000"
     networks:
       - my_network
     environment:
