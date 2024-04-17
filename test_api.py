@@ -1,9 +1,9 @@
 import unittest
 from app import app, db, Data
+# -*- coding: utf-8 -*-
 
 class TestAPI(unittest.TestCase):
     def setUp(self):
-        # Define la IP de la API aquí
         self.api_ip = "192.168.0.11"
         self.api_port = 80
 
