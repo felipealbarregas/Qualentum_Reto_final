@@ -12,6 +12,14 @@ class TestAPI(unittest.TestCase):
     def tearDown(self):
         pass  # No necesitamos realizar acciones específicas al finalizar cada prueba
 
+    def initialize_data(self):
+        # Método para inicializar los datos si test_get_all_data no se ejecuta correctamente
+        response = requests.get(f"{self.api_address}/data")
+        if response.status_code == 200:
+            self.data_list = response.json()
+        else:
+            print("Error al obtener los datos")
+
     def test_insert_data(self):
         # Prueba de inserción exitosa
         response = requests.post(f"{self.api_address}/data", json={"name": "Test"})
@@ -32,8 +40,11 @@ class TestAPI(unittest.TestCase):
 
     def test_delete_data(self):
         # Asegúrate de que test_get_all_data se haya ejecutado antes
+        if self.data_list is None:
+            self.initialize_data()  # Inicializa los datos si es necesario
+
+        # Ahora verifica que self.data_list no sea None
         self.assertIsNotNone(self.data_list)
-        self.test_get_all_data()  # Llama al método para asegurarte de que self.data_list esté inicializado
 
         # Prueba de eliminación exitosa
         data_id = self.data_list[0]['id']
