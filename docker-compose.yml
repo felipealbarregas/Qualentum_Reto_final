@@ -4,7 +4,7 @@ services:
   web1:
     image: fecendrer/reto_final:app
     ports:
-      - "5000:5000"
+      - "8081:5000"
     networks:
       - my_network
     environment:
@@ -12,6 +12,16 @@ services:
       - FLASK_CONFIG=development
       - SQLALCHEMY_DATABASE_URI=postgresql://myuser:mypassword@database/mydatabase
  
+  web2:
+    image: fecendrer/reto_final:app
+    ports:
+      - "8082:5000"
+    networks:
+      - my_network
+    environment:
+      - FLASK_ENV=development
+      - FLASK_CONFIG=development
+      - SQLALCHEMY_DATABASE_URI=postgresql://myuser:mypassword@database/mydatabase
 
   nginx:
     image: nginx:latest
