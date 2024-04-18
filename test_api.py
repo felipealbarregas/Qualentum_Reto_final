@@ -6,7 +6,7 @@ import requests
 class TestAPI(unittest.TestCase):
     def setUp(self):
         # Define la IP de la API aquí
-        self.api_address = "http://192.168.0.11:80"
+        self.api_address = "http://localhost:80"
         self.data_list = None
 
     def tearDown(self):
