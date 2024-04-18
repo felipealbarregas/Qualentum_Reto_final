@@ -692,4 +692,24 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMZiKsH3tnNybZ0LohAL8uX/tzkVApLVSuxQiwsyaV
 -----END SSH HOST KEY KEYS-----
 [   29.769607] cloud-init[1535]: Cloud-init v. 23.1.2-0ubuntu0~18.04.1 running 'modules:final' at Wed, 17 Apr 2024 11:19:19 +0000. Up 29.45 seconds.
 [   29.769918] cloud-init[1535]: Cloud-init v. 23.1.2-0ubuntu0~18.04.1 finished at Wed, 17 Apr 2024 11:19:20 +0000. Datasource DataSourceNoCloud [seed=/dev/sdb][dsmode=net].  Up 29.76 seconds
-
+[10668.930066] Out of memory: Kill process 12460 (java) score 536 or sacrifice child
+[10668.940369] Killed process 12460 (java) total-vm:3060228kB, anon-rss:539232kB, file-rss:0kB, shmem-rss:0kB
+[18506.709660] INFO: rcu_sched self-detected stall on CPU
+[18506.716381] 	0-...!: (1 GPs behind) idle=80a/140000000000001/0 softirq=248307/248308 fqs=0 
+[18506.726618] 	 (t=24629 jiffies g=99420 c=99419 q=26)
+[18506.733508] rcu_sched kthread starved for 24629 jiffies! g99420 c99419 f0x0 RCU_GP_WAIT_FQS(3) ->state=0x402 ->cpu=1
+[18506.749393] INFO: rcu_sched self-detected stall on CPU
+[18506.759070] 	1-...!: (1 ticks this GP) idle=836/140000000000001/0 softirq=276978/276978 fqs=0 
+[18506.770000] 	 (t=24629 jiffies g=99420 c=99419 q=26)
+[18506.778219] rcu_sched kthread starved for 24646 jiffies! g99420 c99419 f0x0 RCU_GP_WAIT_FQS(3) ->state=0x0 ->cpu=1
+[18544.804289] watchdog: BUG: soft lockup - CPU#0 stuck for 36s! [containerd-shim:21349]
+[18544.804576] watchdog: BUG: soft lockup - CPU#1 stuck for 36s! [containerd-shim:21064]
+[24871.595394] e1000 0000:00:08.0 enp0s8: Reset adapter
+[30352.616797] INFO: rcu_sched self-detected stall on CPU
+[30352.617041] INFO: rcu_sched self-detected stall on CPU
+[30352.623663] 	0-...!: (1 ticks this GP) idle=052/140000000000002/0 softirq=399075/399075 fqs=0 
+[30352.639258] 	 (t=76896 jiffies g=153364 c=153363 q=85)
+[30352.639734] 	1-...!: (1 GPs behind) idle=59e/140000000000001/0 softirq=452110/452111 fqs=0 
+[30352.645402] rcu_sched kthread starved for 76896 jiffies! g153364 c153363 f0x0 RCU_GP_WAIT_FQS(3) ->state=0x402 ->cpu=0
+[30352.655040] 	 (t=76896 jiffies g=153364 c=153363 q=85)
+[30352.673144] rcu_sched kthread starved for 76896 jiffies! g153364 c153363 f0x0 RCU_GP_WAIT_FQS(3) ->state=0x402 ->cpu=0
