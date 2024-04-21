@@ -221,7 +221,7 @@ resource "aws_route53_record" "example_record" {
   name    = "app.retofinal.qualentum"
   type    = "A"
   ttl     = "300"
-  records = ["example-load-balancer-dns-name"]  # Reemplaza con el DNS name de tu load balancer o el valor apropiado
+  records = ["data.aws_lb.eks_ingress_lb.dns_name"]  # Reemplaza con el DNS name de tu load balancer o el valor apropiado
 }
 
 resource "aws_cloudwatch_metric_alarm" "request_count_alarm" {
