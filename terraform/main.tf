@@ -65,10 +65,12 @@ resource "aws_db_instance" "my_database" {
   instance_class        = "db.t2.small"
   allocated_storage     = 20
   storage_type          = "gp2"
-  engine_version        = "12.7"
+  engine_version        = "16.2"
   username              = "admin"
   password              = "password"
   publicly_accessible  = false
+
+
 
   # Conectando la instancia al VPC y subredes existentes
   vpc_security_group_ids = [aws_security_group.instance_sg.id]
